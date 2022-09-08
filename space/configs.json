@@ -1,0 +1,21 @@
+{
+    "embeddings": [
+        {
+            "metadataPath": "space\\samples.tsv",
+            "sprite": {
+                "imagePath": "space\\images.png",
+                "singleImageDim": [
+                    224,
+                    224
+                ]
+            },
+            "tensorName": "space",
+            "tensorPath": "space\\embeddings.bytes",
+            "tensorShape": [
+                18,
+                512
+            ]
+        }
+    ],
+    "modelCheckpointPath": "Demo datasets"
+}

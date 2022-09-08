@@ -1,0 +1,21 @@
+{
+    "embeddings": [
+        {
+            "metadataPath": "pretrain\\samples.tsv",
+            "sprite": {
+                "imagePath": "pretrain\\images.png",
+                "singleImageDim": [
+                    224,
+                    224
+                ]
+            },
+            "tensorName": "pretrain",
+            "tensorPath": "pretrain\\embeddings.bytes",
+            "tensorShape": [
+                18,
+                2000
+            ]
+        }
+    ],
+    "modelCheckpointPath": "Demo datasets"
+}

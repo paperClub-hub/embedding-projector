@@ -1,0 +1,21 @@
+{
+    "embeddings": [
+        {
+            "metadataPath": "sbert\\samples.tsv",
+            "sprite": {
+                "imagePath": "sbert\\images.png",
+                "singleImageDim": [
+                    224,
+                    224
+                ]
+            },
+            "tensorName": "sbert",
+            "tensorPath": "sbert\\embeddings.bytes",
+            "tensorShape": [
+                18,
+                512
+            ]
+        }
+    ],
+    "modelCheckpointPath": "Demo datasets"
+}
