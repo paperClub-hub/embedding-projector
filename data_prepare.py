@@ -8,10 +8,11 @@
 
 
 import os
+import cv2
 import json
 import numpy as np
 import pandas as pd
-import cv2
+from typing import List
 
 
 def load_img_data(json_path):
@@ -163,8 +164,16 @@ def image2_single(imgfiles: list, img_size: int=224):
 
 
 
-def embeddings_to_config(embs: np.ndarray, samples: list, title:str = "demo", sampletype:str="img"):
-	if not os.path.exists(title): os.mkdir(title)
+def embeddings_to_config(embs: np.ndarray, samples: List, lables:List=None, title:str = "demo", sampletype:str="img"):
+	"""
+
+	:param embs: 向量
+	:param samples: 文件路径
+	:param lables: 样本标签
+	:param title: 项目名称（保存路径）
+	:param sampletype: 文件类型
+	:return:
+	"""
 
 	if not os.path.exists(title): os.mkdir(title)
 	save_emb_path =  os.path.join(title, "embeddings.bytes")
@@ -180,8 +189,12 @@ def embeddings_to_config(embs: np.ndarray, samples: list, title:str = "demo", sa
 
 	### 获取特征
 	embeddings2bytes(embs, save_emb_path)
+
 	### 获取样本
-	samples2tsv(samples, save_sample_path)
+	if lables:
+		samples2tsv(lables, save_sample_path)
+	else:
+		samples2tsv(samples, save_sample_path)
 
 	### 合并结果
 	config = {"modelCheckpointPath": "Demo datasets", "embeddings": []}
@@ -208,3 +221,4 @@ if __name__ == '__main__':
 		embeddings, files, labels = load_img_data(jsfile)
 		title = os.path.splitext(os.path.basename(jsfile))[0]
 		embeddings_to_config(embs= embeddings, samples= files, title=title, sampletype='img')
+
